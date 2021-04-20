@@ -1,0 +1,2 @@
+- [Kernel calling convention (Section A.2)](https://refspecs.linuxfoundation.org/elf/x86_64-abi-0.99.pdf)\
+- [Embedded asm in gcc](https://gcc.gnu.org/onlinedocs/gcc/Extended-Asm.html#Extended-Asm)
