@@ -6,7 +6,7 @@ sysinfo: sysinfo.c
 	./$@
 
 strace: sysinfo
-	strace ./$<
+	strace ./$< > /dev/null
 
 objdump: sysinfo
 	objdump -x $<
