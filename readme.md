@@ -5,6 +5,8 @@ This program displays information about the local system. In particular, it disp
 
 This program demonstates the use of inline assembly and system calls. It will not `#include` or link against any external files. It does not use the C standard library. The final binary must be less than 1KiB in size.
 
+Your task is to properly implement the `open` and `read` system calls and use them for implement the program.
+
 Documentation
 -------------
 
@@ -405,4 +407,26 @@ Hugetlb:               0 kB
 DirectMap4k:     4981680 kB
 DirectMap2M:    27883520 kB
 DirectMap1G:     1048576 kB
+```
+
+Open, Read, and Write
+---------------------
+
+The following example program that will output the first 4096 bytes of the file `main.c` may be useful example of the `open`, `read`, and `write` system calls in action:
+
+```c
+#include <unistd.h>
+#include <fcntl.h>
+
+int main() {
+  int fd;
+  int bytes_read;
+  char buf[4096];
+
+  fd = open("main.c", O_RDONLY);
+  
+  bytes_read = read(fd, buf, 4096);
+
+  write(STDOUT_FILENO, buf, bytes_read);
+}
 ```
