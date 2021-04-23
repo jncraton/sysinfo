@@ -1,4 +1,4 @@
-const int stdout = 1;
+const int STDOUT_FILENO = 1;
 const int O_RDONLY = 0;
 
 static inline long strlen(char *buf) {
@@ -76,7 +76,7 @@ void _start() {
   */
   char msg[32] = "Hello, world";
   
-  write(stdout, msg, strlen(msg));
+  write(STDOUT_FILENO, msg, strlen(msg));
 
   exit(0);
 }
