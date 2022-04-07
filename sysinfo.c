@@ -29,14 +29,6 @@ static inline long strlen(char *buf) {
   return length;
 }
 
-static inline long read(int fd, char *buf, int count) {
-  /*
-  Executes the `read` system call
-  */
-
-  return 0;
-}
-
 static inline void write(int fd, const char *buf, int count) {
   /*
   Executes the `write` system call
@@ -46,14 +38,6 @@ static inline void write(int fd, const char *buf, int count) {
       : /* No outputs */
       : "D"(fd), "S"(buf), "d"(count)
       : "rcx", "r11", "memory");
-}
-
-static inline long open(char *pathname, int flags) {
-  /*
-  Executes the `open` system call
-  */
-
-  return -1;
 }
 
 static inline void exit(int code) {
@@ -70,13 +54,34 @@ static inline void exit(int code) {
   __builtin_unreachable();
 }
 
+/** 
+Your code begins here
+**/
+
+static inline long open(char *pathname, int flags) {
+  /*
+  Executes the `open` system call
+  */
+
+  return -1;
+}
+
+static inline long read(int fd, char *buf, int count) {
+  /*
+  Executes the `read` system call
+  */
+
+  return -1;
+}
+
 void _start() {
   /*
   Program entry point
-  */
-  char msg[32] = "Hello, world";
-  
-  write(STDOUT_FILENO, msg, strlen(msg));
+  */  
+
+  char buf[4096] = "Hello, world!\n";
+
+  write(STDOUT_FILENO, buf, strlen(buf));
 
   exit(0);
 }
