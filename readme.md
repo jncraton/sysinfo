@@ -1,7 +1,7 @@
 sysinfo
 =======
 
-This program displays information about the local system. In particular, it CPU load average from `/proc/loadavg` and memory usage from `/proc/meminfo`.
+This program displays information about the local system. In particular, it shows CPU load average from `/proc/loadavg` and memory usage from `/proc/meminfo`.
 
 This program demonstates the use of inline assembly and system calls. It will not `#include` or link against any external files. It does not use the C standard library.
 
