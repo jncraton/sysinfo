@@ -18,10 +18,10 @@ static inline long strlen(char *buf) {
 
   int length;
 
-  asm("mov $-1, %%eax;"             // Initialize length at -1
-      "%=: inc %%eax;"              // Begin loop
+  asm("mov $-1, %%rax;"             // Initialize length at -1
+      "loop: inc %%rax;"            // Begin loop
       "cmpb $0, (%%rax, %%rdi, 1);" // Load next char and compare to null
-      "jne %=b;"                    // Loop
+      "jne loop;"                   // Loop
       : "=a"(length)
       : "D"(buf)
       :);
