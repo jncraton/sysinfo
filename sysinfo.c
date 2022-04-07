@@ -5,7 +5,7 @@ static inline long strlen(char *buf) {
   /*
   Returns the length of a string
 
-  This function appoximiatelt emulates the following c code in x64 assembly:
+  This function appoximiately emulates the following c code in x64 assembly:
 
   int length = 0
 
