@@ -13,6 +13,8 @@ Expected Output
 The completed program will produce output that looks approximately like the following:
 
 ```
+sysinfo 1.0
+
 Load Average
 0.24 0.45 0.52 3/1107 702033
 

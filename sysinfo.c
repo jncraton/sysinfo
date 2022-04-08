@@ -109,7 +109,7 @@ void _start() {
   /proc/loadavg and memory usage from /proc/meminfo.
   */
 
-  char buf[4096] = "Hello, world!\n";
+  char buf[4096] = "sysinfo 1.0\n\n";
 
   write(STDOUT_FILENO, buf, strlen(buf));
 
