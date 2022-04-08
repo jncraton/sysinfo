@@ -5,17 +5,7 @@ This program displays information about the local system. In particular, it show
 
 This program demonstates the use of inline assembly and system calls. It will not `#include` or link against any external files. It does not use the C standard library.
 
-Your task is to properly implement the `open` and `read` system calls and use them to implement the program. Examples have been provided for the `write` and `exit` system calls.
-
-Documentation
--------------
-
-The following links may be helpful.
-
-- [Embedding assembly in gcc](https://gcc.gnu.org/onlinedocs/gcc/Extended-Asm.html#Extended-Asm)
-- [x86-64 machine register constraints](https://gcc.gnu.org/onlinedocs/gcc/Machine-Constraints.html#Machine-Constraints)
-- [Kernel calling convention (Section A.2)](https://refspecs.linuxfoundation.org/elf/x86_64-abi-0.99.pdf)
-- [Kernel System Call numbers](https://github.com/torvalds/linux/blob/master/arch/x86/entry/syscalls/syscall_64.tbl)
+Your task is to properly implement the `open` and `read` system calls and use them to implement the program. Examples have been provided for the `write` and `exit` system calls. Because this lab uses x64 Linux system calls, it must be completed in an x64 Linux environment.
 
 Expected Output
 ---------------
@@ -82,8 +72,8 @@ DirectMap2M:    18458624 kB
 DirectMap1G:    14680064 kB
 ```
 
-Open, Read, and Write
----------------------
+Example C Program
+-----------------
 
 The following example program that will output the first 4096 bytes of the file `/proc/loadavg` may be useful example of the `open`, `read`, and `write` system calls in action:
 
@@ -101,3 +91,16 @@ int main() {
   write(STDOUT_FILENO, buf, bytes_read);
 }
 ```
+
+The example implementation of `write` and `exit` may also be informative.
+
+Documentation
+-------------
+
+The following links may be helpful.
+
+- [Embedding assembly in gcc](https://gcc.gnu.org/onlinedocs/gcc/Extended-Asm.html#Extended-Asm)
+- [x86-64 machine register constraints](https://gcc.gnu.org/onlinedocs/gcc/Machine-Constraints.html#Machine-Constraints)
+- [Kernel calling convention (Section A.2)](https://refspecs.linuxfoundation.org/elf/x86_64-abi-0.99.pdf)
+- [Kernel System Call numbers](https://github.com/torvalds/linux/blob/master/arch/x86/entry/syscalls/syscall_64.tbl)
+
