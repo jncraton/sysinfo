@@ -42,7 +42,7 @@ static inline void write(int fd, const char *buf, int count) {
       "syscall;"
       : /* No outputs */
       : "D"(fd), "S"(buf), "d"(count)
-      : "rcx", "r11", "memory");
+      : "rcx", "r11" /* Registers clobbered by syscall */ );
 }
 
 static inline void exit(int code) {
@@ -59,7 +59,7 @@ static inline void exit(int code) {
       "syscall;"
       : /* No outputs */
       : "D"(code)
-      : "rcx", "r11", "memory");
+      : "rcx", "r11" /* Registers clobbered by syscall */ );
 
   __builtin_unreachable();
 }
