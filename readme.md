@@ -110,10 +110,16 @@ The register names by GCC can be a little opaque due to the way the x86 system h
 | S    | The rsi register. |
 | D    | The rdi register. |
 
-The following links may be helpful.
+Here are some key notes extracted from the [kernel calling convention documentation (Section A.2)](https://refspecs.linuxfoundation.org/elf/x86_64-abi-0.99.pdf):
+
+> 1. User-level applications use as integer registers for passing the sequence %rdi, %rsi, %rdx, %rcx, %r8 and %r9. The kernel interface uses %rdi, %rsi, %rdx, %r10, %r8 and %r9.
+> 2. A system-call is done via the syscall instruction. The kernel destroys registers %rcx and %r11.
+> 3. The number of the syscall has to be passed in register %rax.
+> 4. System-calls are limited to six arguments, no argument is passed directly on the stack.
+> 5. Returning from the syscall, register %rax contains the result of the system-call. A value in the range between -4095 and -1 indicates an error, it is -errno.
+
+The following may also be helpful.
 
 - [Embedding assembly in gcc](https://gcc.gnu.org/onlinedocs/gcc/Extended-Asm.html#Extended-Asm)
 - [x86-64 machine register constraints](https://gcc.gnu.org/onlinedocs/gcc/Machine-Constraints.html#Machine-Constraints)
-- [Kernel calling convention (Section A.2)](https://refspecs.linuxfoundation.org/elf/x86_64-abi-0.99.pdf)
 - [Kernel System Call numbers](https://github.com/torvalds/linux/blob/master/arch/x86/entry/syscalls/syscall_64.tbl)
-
