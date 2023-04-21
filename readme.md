@@ -99,6 +99,17 @@ The example implementation of `write` and `exit` may also be informative.
 Documentation
 -------------
 
+The register names by GCC can be a little opaque due to the way the x86 system has evolved. Here are the common ones:
+
+| name | description |
+|------|-------------|
+| a    | The rax register. |
+| b    | The rbx register. |
+| c    | The rcx register. |
+| d    | The rdx register. |
+| S    | The rsi register. |
+| D    | The rdi register. |
+
 The following links may be helpful.
 
 - [Embedding assembly in gcc](https://gcc.gnu.org/onlinedocs/gcc/Extended-Asm.html#Extended-Asm)
