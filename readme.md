@@ -1,11 +1,9 @@
 sysinfo
 =======
 
-This program displays information about the local system. In particular, it shows CPU load average from `/proc/loadavg` and memory usage from `/proc/meminfo`.
+This project demonstates the use of inline assembly and system calls. It will not `#include` or link against any external files. It will not use the C standard library. Running the program displays information about the local system. In particular, it shows CPU load average from `/proc/loadavg` and memory usage from `/proc/meminfo`.
 
-This program demonstates the use of inline assembly and system calls. It will not `#include` or link against any external files. It does not use the C standard library.
-
-Your task is to properly implement the `open` and `read` system calls and use them to implement the program. Examples have been provided for the `write` and `exit` system calls. Because this lab directly uses x64 Linux system calls, it must be completed in an x64 Linux environment.
+Your task is to properly implement the `open` and `read` system calls and use them to implement the program. Examples have been provided for the `write` and `exit` system calls. Because this lab directly uses x64 Linux system calls, it **must be completed in an x64 Linux environment**.
 
 Expected Output
 ---------------
@@ -74,10 +72,10 @@ DirectMap2M:    18458624 kB
 DirectMap1G:    14680064 kB
 ```
 
-Example C Program
------------------
+Examples
+--------
 
-The following example program that will output the first 4096 bytes of the file `/proc/loadavg` may be useful example of the `open`, `read`, and `write` system calls in action:
+The following program may be useful example of the `open`, `read`, and `write` system calls in action. It will output the first 4096 bytes of the file `/proc/loadavg`.
 
 ```c
 #include <unistd.h>
@@ -94,7 +92,7 @@ int main() {
 }
 ```
 
-The example implementation of `write` and `exit` may also be informative.
+That example shows how to use these system calls at a high level, but it does not demonstrate how they are implemented. The example implementation of `write` and `exit` in [sysinfo.c](sysinfo.c) may be informative with regards to implementation.
 
 Documentation
 -------------
