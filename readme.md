@@ -1,9 +1,28 @@
 sysinfo
 =======
 
-This project demonstates the use of inline assembly and system calls. It will not `#include` or link against any external files. It will not use the C standard library. Running the program displays information about the local system. In particular, it shows CPU load average from `/proc/loadavg` and memory usage from `/proc/meminfo`.
+An exploration of OS system calls in x64 assembly.
 
-Your task is to properly implement the `open` and `read` system calls and use them to implement the program. Examples have been provided for the `write` and `exit` system calls. Because this lab directly uses x64 Linux system calls, it **must be completed in an x64 Linux environment**.
+Learning Objectives
+-------------------
+
+After completing this assignment, student will be able to:
+
+- Describe the interaction between userspace programs and the operating system
+- Embed assembly code within C programs
+- Implement OS system calls from userspace
+
+Overview
+--------
+
+This program displays information about the local system. In particular, it shows CPU load average from `/proc/loadavg` and memory usage from `/proc/meminfo`.
+
+This program demonstates the use of inline assembly and system calls. It will not `#include` or link against any external files. It does not use the C standard library.
+
+Task
+----
+
+Your task is to properly implement the `open` and `read` system calls and use them to implement the program. Examples have been provided for the `write` and `exit` system calls. Because this lab directly uses x64 Linux system calls, it must be completed in an x64 Linux environment.
 
 Expected Output
 ---------------
@@ -97,7 +116,7 @@ That example shows how to use these system calls at a high level, but it does no
 Documentation
 -------------
 
-The register names by GCC can be a little opaque due to the way the x86 system has evolved. Here are the common ones:
+The register names used by GCC can be a little opaque due to the way the x86 system has evolved. Here are the common ones:
 
 | name | description |
 |------|-------------|
