@@ -9,7 +9,7 @@ static inline long strlen(char *buf) {
 
   int length = 0
 
-  while(buf[length] == '\0') {
+  while(buf[length] != '\0') {
     length++;
   }
 
